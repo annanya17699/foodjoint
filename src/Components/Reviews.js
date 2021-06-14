@@ -12,28 +12,21 @@ return userData.loading ? (
   ) : userData.error ? (
     <h2>{userData.error}</h2>
   ) : (
-    <div id='reviews' style={{marginBottom:0, padding:0}}>
-                         <Container>
-                         <h2><span style={{textAlign: 'center'}}>REVIEWS</span></h2>
-                         <br/>
-                         
-                         <CardDeck>
-                         
-      
+    <div id='reviews' style={{marginBottom:0, padding:20}}>
+      <Container>
+        <h2><span style={{textAlign: 'center'}}>REVIEWS</span></h2>
+        <br/>
+          <CardDeck>
         {userData &&
           userData.users &&
           userData.users.map(user => 
-            <Card bg = 'info'> 
+            <Card bg = 'success' style={{marginBottom: 10}}> 
           <Card.Body><p style={{background: 'pink'}}><b>{user.name} ⭐⭐⭐⭐⭐ </b>
           <br/>
           'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
              Will never go anywhere else fr<p >om now on!”'</p></p></Card.Body>
-            </Card>
-          
-                            )}
-             
+            </Card>)}
           </CardDeck>
-         
         </Container>
         </div> 
   )

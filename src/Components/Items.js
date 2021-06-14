@@ -80,10 +80,10 @@ function Items() {
                 </Card.Body>
             </Card>
         </CardGroup>
-        <Button variant='success my-5' onClick={handleShow}>Payment</Button>
+        <Button variant='success my-3' onClick={handleShow}>Click to Pay</Button>
         <br/>
         <Modal  show={show} onHide={handleClose} aria-labelledby="modal-center" centered style={{textAlign: 'center'}} >
-            <Modal.Body style={{background:'pink'}}>
+            <Modal.Body style={{background:'lightyellow'}}>
                 <CloseButton onClick={handleClose}/>
                 <Modal.Title  id="modal-center" style={{color:'green'}}>Payment Successful!!!</Modal.Title>
                     <Modal.Footer>
