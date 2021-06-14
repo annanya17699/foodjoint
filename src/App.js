@@ -13,10 +13,12 @@ function App() {
     <div className="App">
       <Header/>
       <Home/>
+      
       <Provider store = {store}>
       <Items/>
-      </Provider>
       <Reviews/>
+      </Provider>
+      
       <Footer/>
     </div>
   );

@@ -16,3 +16,6 @@ a{
   background: #abcdef;
   border: darkblue double;
 }
+.card-columns{
+  column-count: 3 !important;
+}

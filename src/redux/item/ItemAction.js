@@ -1,19 +1,22 @@
 import { BUY_ICECREAM , BUY_CAKE, BUY_CHOCOLATE } from "./ItemType"
 
-export const buyIcecream = () => {
+export const buyIcecream = (numIcecream=1) => {
     return{
-        type: BUY_ICECREAM
+        type: BUY_ICECREAM,
+        payload : numIcecream
     }
 }
 
-export const buyCake = () => {
+export const buyCake = (numCake=1) => {
     return{
-        type: BUY_CAKE
+        type: BUY_CAKE,
+        payload : numCake
     }
 }
 
-export const buyChocolate = () => {
+export const buyChocolate = (numChocolate=1) => {
     return{
-        type: BUY_CHOCOLATE
+        type: BUY_CHOCOLATE,
+        payload : numChocolate
     }
 }

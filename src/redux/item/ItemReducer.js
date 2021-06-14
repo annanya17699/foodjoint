@@ -6,18 +6,20 @@ const initialState = {
     numOfChocolate : 50
 }
 const ItemReducer = (state = initialState, action) =>{
+    console.log(action.payload)
     switch(action.type){
         case BUY_ICECREAM : return{
             ...state,
-            numOfIceCream : state.numOfIceCream -1
+            
+            numOfIceCream : state.numOfIceCream - action.payload
         }
         case BUY_CAKE : return{
             ...state,
-            numOfCake : state.numOfCake -1
+            numOfCake : state.numOfCake - action.payload
         }
         case BUY_CHOCOLATE : return{
             ...state,
-            numOfChocolate : state.numOfChocolate -1
+            numOfChocolate : state.numOfChocolate - action.payload
         }
         default : return state
     }

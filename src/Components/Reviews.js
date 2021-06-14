@@ -1,42 +1,59 @@
-import React from 'react'
-import {Container , Card, CardGroup} from 'react-bootstrap'
-function Reviews() {
-    return (
-        <div id='reviews' style={{marginBottom:0, padding:0}}>
-            <Container>
-            <h2><span style={{textAlign: 'center'}}>REVIEWS</span></h2>
-            <br/>
-            <CardGroup>
-            <Card bg = 'success'>
-                <Card.Body>
-                <Card.Title><b>Marvin Sky ⭐⭐⭐⭐⭐ </b></Card.Title>
-            <p style={{background: 'pink'}}>
-            'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
-Will never go anywhere else from now on!”'</p>
-                </Card.Body>
+import React , { useEffect } from 'react'
+import {Container , Card, CardDeck} from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { fetchUser } from '../redux/user/UserAction'
+
+function Reviews({ userData, fetchUser }) {
+useEffect(() => {
+    fetchUser()
+  }, [fetchUser])
+return userData.loading ? (
+    <h2>Loading</h2>
+  ) : userData.error ? (
+    <h2>{userData.error}</h2>
+  ) : (
+    <div id='reviews' style={{marginBottom:0, padding:0}}>
+                         <Container>
+                         <h2><span style={{textAlign: 'center'}}>REVIEWS</span></h2>
+                         <br/>
+                         
+                         <CardDeck>
+                         
+      
+        {userData &&
+          userData.users &&
+          userData.users.map(user => 
+            <Card bg = 'info'> 
+          <Card.Body><p style={{background: 'pink'}}><b>{user.name} ⭐⭐⭐⭐⭐ </b>
+          <br/>
+          'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
+             Will never go anywhere else fr<p >om now on!”'</p></p></Card.Body>
             </Card>
-            <Card bg = 'primary'>
-            <Card.Body>
-                <Card.Title><b>Mary Anne ⭐⭐⭐ </b></Card.Title>
-            <p style={{background: 'lightgreen'}}>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
-Will never go anywhere else from now on!”'</p>
-</Card.Body></Card>
-            <Card bg = 'danger'>
-            <Card.Body>
-            <Card.Title><b>Sid Jackson ⭐⭐⭐⭐</b></Card.Title>
-            <p  style={{background: 'lightyellow'}}>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
-Will never go anywhere else from now on!”'</p></Card.Body></Card>
-            <Card bg = 'warning'>
-            <Card.Body>
-            <Card.Title><b>Jack Bean ⭐⭐⭐⭐</b></Card.Title>
-            <p  style={{background: 'orange'}}>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
-Will never go anywhere else from now on!”'</p>
-</Card.Body>
-            </Card>
-            </CardGroup>
-            </Container>
-        </div>
-    )
+          
+                            )}
+             
+          </CardDeck>
+         
+        </Container>
+        </div> 
+  )
 }
 
-export default Reviews
+
+
+const mapStateToProps = state => {
+    return {
+      userData: state.user
+    }
+  }
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+      fetchUser: () => dispatch(fetchUser())
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Reviews)

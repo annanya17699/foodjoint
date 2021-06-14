@@ -12,52 +12,80 @@ function Items() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const numOfIceCream = useSelector(state => state.numOfIceCream)
-    const numOfCake = useSelector(state => state.numOfCake)
-    const numOfChocolate = useSelector(state => state.numOfChocolate)
+    const [numCake, setnumCake] = useState(1)
+    const [numChocolate, setnumChocolate] = useState(1)
+    const [numIcecream, setnumIcecream] = useState(1)
+
+    const [cost] = useState( {
+        cake: 200 ,
+        chocolate : 20 ,
+        icecream : 50
+    })
+
+    const numOfIceCream = useSelector(state => state.item.numOfIceCream)
+    const numOfCake = useSelector(state => state.item.numOfCake)
+    const numOfChocolate = useSelector(state => state.item.numOfChocolate)
+
     const dispatch = useDispatch()
     return (
         <div id='menu' style={{background: '#abcdef', marginBottom:0, paddingTop:30}}>
         <Container>
             <h2>ITEMS IN SHOP</h2>
         <CardGroup className='my-2'>
-            <Card style={{ width: '18rem' }}>
-                <center><Card.Img style={{height: 'auto', width:200, paddingTop:10}} src = {chocolate}/></center>
+            <Card style={{ width: '18rem' , margin:'10px' , background:'#F4C7AB' }}>
+                <center><Card.Img style={{height: 100, width:200, paddingTop:10}} src = {chocolate}/></center>
                 <Card.Body>
                     <Card.Text>
-                        CHOCOLATES $20<br/>
-                        counter: {numOfChocolate}
+                        CHOCOLATES<br/>
+                         ${cost.chocolate}<br/>
+                        Inventory : {numOfChocolate}<br/>
+                        Amount : <input type='text' value={numChocolate} onChange= {e => setnumChocolate(e.target.value)}></input><hr/>
+                        <Card.Footer>
+                            Total Cost : {`${cost.chocolate} * ${numChocolate}`} = <span style={{background:'lightgreen' , padding: '5px'}}>{`${cost.chocolate}` * numChocolate}</span> 
+                        </Card.Footer>
                     </Card.Text>
-                    <Button onClick= {() => dispatch(buyChocolate())}>Buy Chocolate</Button>
+                    <Button variant='danger' onClick= {() => dispatch(buyChocolate(numChocolate))}>Buy {numChocolate} Chocolate</Button>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '18rem' }}>
-                <center><Card.Img style={{height: 'auto', width:200, paddingTop:10}} src = {cake}/></center>
+            <Card style={{ width: '18rem' , margin:'10px' , background:'#F4C7AB'}}>
+                <center><Card.Img style={{height: 100, width:200, paddingTop:10}} src = {cake}/></center>
                 <Card.Body>
                     <Card.Text>
-                        CAKES $100<br/>
-                        counter: {numOfCake}
-                    </Card.Text>
-                    <Button onClick= {() => dispatch(buyCake())}>Buy Cake</Button>
+                        CAKES<br/>
+                         ${cost.cake}<br/>
+                        Inventory : {numOfCake}<br/>
+                        Amount : <input type='text' value={numCake} onChange= {e => setnumCake(e.target.value)}></input><hr/>
+                    
+                    <Card.Footer>
+                            Total Cost : {`${cost.cake} * ${numCake}`} = <span style={{background:'lightgreen' , padding: '5px'}}>{`${cost.cake}` * numCake}</span>
+                        </Card.Footer>
+                        </Card.Text>
+                    <Button variant='danger' onClick= {() => dispatch(buyCake(numCake))}>Buy {numCake} Cake</Button>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '18rem' }}>
-                <center><Card.Img style={{height: 'auto', width:200, paddingTop:10}} src = {icecream}/></center>
+            <Card style={{ width: '18rem' , margin:'10px' , background:'#F4C7AB'}}>
+                <center><Card.Img style={{height: 100, width:200, paddingTop:10}} src = {icecream}/></center>
                 <Card.Body>
                     <Card.Text>
-                        ICECREAMS $50<br/>
-                        counter: {numOfIceCream}
-                    </Card.Text>
-                    <Button onClick= {() => dispatch(buyIcecream())}>Buy Icecream</Button>
+                        ICECREAMS <br/>
+                        ${cost.icecream}<br/>
+                        Inventory : {numOfIceCream}<br/>
+                        Amount : <input type='text' value={numIcecream} onChange= {e => setnumIcecream(e.target.value)}></input><hr/>
+                    
+                    <Card.Footer>
+                            Total Cost : {`${cost.icecream} * ${numIcecream}`} = <span style={{background:'lightgreen' , padding: '5px'}}>{`${cost.icecream}` * numIcecream}</span>
+                        </Card.Footer>
+                        </Card.Text>
+                    <Button variant='danger' onClick= {() => dispatch(buyIcecream(numIcecream))}>Buy {numIcecream} Icecream</Button>
                 </Card.Body>
             </Card>
         </CardGroup>
-        <Button variant='success' onClick={handleShow}>Payment</Button>
+        <Button variant='success my-5' onClick={handleShow}>Payment</Button>
         <br/>
         <Modal  show={show} onHide={handleClose} aria-labelledby="modal-center" centered style={{textAlign: 'center'}} >
             <Modal.Body style={{background:'pink'}}>
                 <CloseButton onClick={handleClose}/>
-                <Modal.Title  id="modal-center" style={{color:'green'}}>Payment Registration!!!</Modal.Title>
+                <Modal.Title  id="modal-center" style={{color:'green'}}>Payment Successful!!!</Modal.Title>
                     <Modal.Footer>
                     Thanks For Shopping with Fudge Co. !!!<br/>
                     Enjoy Delicious cakes , chocolates and icecreams!!!
