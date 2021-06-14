@@ -6,7 +6,9 @@ import {Carousel} from 'react-bootstrap'
 function Home() {
     return (
         <div id='home'>
+          <hr/>
             <h3>Welcome to Fudge Co. </h3>
+            <hr/>
             <Carousel fade>
   <Carousel.Item>
     <img

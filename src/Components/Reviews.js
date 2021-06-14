@@ -1,18 +1,40 @@
 import React from 'react'
-
+import {Container , Card, CardGroup} from 'react-bootstrap'
 function Reviews() {
     return (
         <div id='reviews' style={{marginBottom:0, padding:0}}>
+            <Container>
             <h2><span style={{textAlign: 'center'}}>REVIEWS</span></h2>
             <br/>
-            <p style={{background: 'pink'}}><b>Marvin Brown  </b><br/>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
+            <CardGroup>
+            <Card bg = 'success'>
+                <Card.Body>
+                <Card.Title><b>Marvin Sky ⭐⭐⭐⭐⭐ </b></Card.Title>
+            <p style={{background: 'pink'}}>
+            'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
 Will never go anywhere else from now on!”'</p>
-            <p style={{background: 'lightgreen'}}><b>Mary Anne  </b><br/>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
+                </Card.Body>
+            </Card>
+            <Card bg = 'primary'>
+            <Card.Body>
+                <Card.Title><b>Mary Anne ⭐⭐⭐ </b></Card.Title>
+            <p style={{background: 'lightgreen'}}>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
 Will never go anywhere else from now on!”'</p>
-            <p  style={{background: 'lightblue'}}><b>Sid Jackson  </b><br/>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
+</Card.Body></Card>
+            <Card bg = 'danger'>
+            <Card.Body>
+            <Card.Title><b>Sid Jackson ⭐⭐⭐⭐</b></Card.Title>
+            <p  style={{background: 'lightyellow'}}>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
+Will never go anywhere else from now on!”'</p></Card.Body></Card>
+            <Card bg = 'warning'>
+            <Card.Body>
+            <Card.Title><b>Jack Bean ⭐⭐⭐⭐</b></Card.Title>
+            <p  style={{background: 'orange'}}>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
 Will never go anywhere else from now on!”'</p>
-            <p  style={{background: 'orange'}}><b>Jack Bean  </b><br/>'Absolutely brilliant! From start to finish it was a seamless process and the qutility was OUTSTANDING!
-Will never go anywhere else from now on!”'</p>
+</Card.Body>
+            </Card>
+            </CardGroup>
+            </Container>
         </div>
     )
 }

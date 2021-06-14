@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .footer{
   position:relative;
@@ -13,7 +14,5 @@ a{
 }
 #home , #reviews{
   background: #abcdef;
-}
-body{
-  font-family: fantasy;
+  border: darkblue double;
 }
