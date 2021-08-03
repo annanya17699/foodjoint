@@ -8,33 +8,8 @@ function Home() {
         <div id='home'>
           <hr/>
             <h3>Welcome to Fudge Co. </h3>
-            <hr/>
-            <Carousel fade>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      style={{height: 400}}
-      src={cake}
-      alt="First slide"
-    />
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      style={{height: 400}}
-      src={chocolate}
-      alt="Second slide"
-    />
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      style={{height: 400}}
-      src={icecream}
-      alt="Third slide"
-    />
-  </Carousel.Item>
-</Carousel>
+          <hr/>
+        <h4> You can’t buy happiness, but you can buy dessert and that’s kind of the same thing.</h4>
         </div>
     )
 }
